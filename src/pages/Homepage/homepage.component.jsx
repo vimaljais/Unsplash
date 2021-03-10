@@ -21,6 +21,9 @@ const Homepage = () => {
     } catch (error) {
       console.log(error);
     }
+    return () => {
+      console.log("cleaned up");
+    };
   }, []);
 
   useEffect(() => {
@@ -31,6 +34,9 @@ const Homepage = () => {
       .then((response) => {
         setImages(response.data);
       });
+    return () => {
+      console.log("cleaned up");
+    };
   }, []);
 
   if (auth.currentUser === null) {

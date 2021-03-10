@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import ImageGrid from "../../components/ImageGridUnsplash/ImageGridUnsplash.component";
 import SearchForm from "../../components/SearchForm/searchForm.component";
@@ -12,10 +12,6 @@ const ImagesPage = () => {
 
   const [query, setQuery] = useState(`Random Images`);
   const [active, setActive] = useState("Random Images");
-
-  useEffect(() => {
-    imageSearch();
-  });
 
   const onSubmit = (search) => {
     setQuery(search);
@@ -39,6 +35,8 @@ const ImagesPage = () => {
   if (auth.currentUser === null) {
     return <Redirect to="/signin" />;
   } else {
+    imageSearch();
+
     return (
       <div>
         <h1 className="title">UNSPLASH</h1>
