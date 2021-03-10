@@ -22,6 +22,7 @@ const Albums = () => {
   }, []);
 
   if (auth.currentUser === null) {
+    alert("Please SignIn");
     return <Redirect to="/signin" />;
   } else {
     return (
